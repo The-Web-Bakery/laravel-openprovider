@@ -4,6 +4,7 @@ namespace TheWebbakery\OpenProvider;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Http;
+use TheWebbakery\OpenProvider\Requests\DNS;
 use TheWebbakery\OpenProvider\Requests\Domains;
 
 class OpenProviderClient
@@ -39,5 +40,10 @@ class OpenProviderClient
 	public function domains(): Domains
 	{
 		return new Domains($this->httpClient);
+	}
+
+	public function dns(): DNS
+	{
+		return new DNS($this->httpClient);
 	}
 }

@@ -41,6 +41,7 @@ abstract class BaseRequest
 		$response = $this->httpClient->put($url, $data);
 
 		if (!$response->successful()) {
+			dd($response->collect(), $data);
 			throw new OpenProviderApiException($response->collect('desc'));
 		}
 
